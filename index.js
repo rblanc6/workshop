@@ -3,35 +3,53 @@
 class Numbers {
   constructor(data) {
     //data can either be a string or an array of numbers
+    this.data = data;
     if (typeof data === "string") {
       this.data = str.split(",").map((number) => number * 1);
     } else {
       this.data = data;
     }
   }
+
   count() {
-    //return the count of numbers in data
+    //return the count of numbers in data;
+    return this.data.length;
   }
   printNumbers() {
     //print the numbers in data
+    for (let i = 0; i < this.data.length; i++) {
+      console.log(`${i}: ${this.data[i]}`);
+    }
   }
   odds() {
     //return the odd numbers in data
+    return this.data.filter((number) => number % 2 !== 0);
   }
   evens() {
     //return the even numbers in data
+    return this.data.filter((number) => number % 2 == 0);
   }
   sum() {
     //return the sum of the numbers
+    return this.data.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0
+    );
   }
   product() {
     //return the product of the numbers
+    return this.data.reduce(
+      (accumulator, currentValue) => accumulator * currentValue,
+      1
+    );
   }
   greaterThan(target) {
     //return the numbers greater than the target
+    return this.data.filter((num) => num > target);
   }
   howMany(target) {
     //return the count of a given number
+    return this.data.filter((x) => x === target).length;
   }
 }
 
